@@ -202,3 +202,46 @@ Files that did not have GPS data or Date/Time of original were modifed at ~2015:
 ### PDF 
 There is a pdf in ~KevinTunes/Documents :ol 11291307605-327242879-ticket.pdf 
 When exiftool  11291307605-327242879-ticket.pdf is applied to it, we can see that it was created by EventBrite at 2014 9-23 at 10:03 am.  The pdf referes to a concert ot be held on 9/14 called Pygmalion festival.  
+
+### Web Browser artifacts
+if we apply these commands: 
+```
+bash 
+cp -r ~/out/Users/Kevin Tunes/Application Data/Mozilla/Firefox/Profiles/obaosuzs.default ~/
+
+cd obaosuzs.default
+sqlite3 places.sqlite
+.tables
+SELECT * FROM moz_places;
+SELECT * FROM moz_historyvisits;
+
+```
+
+the data shows websites KT has visited.  Many of them are inreference to 'Pitchfork', music album reviews, and Spotify downloads. (First Select Command)
+The following query: ELECT datetime(moz_historyvisits.visit_date/1000000, 'unixepoch', 'localtime'), moz_places.url FROM moz_places, moz_historyvisits WHERE moz_places.id = moz_historyvisits.place_id;
+shows the date/time and website URL's accessed by KT on 2015-6-30 between 8:04 and 8:29.  
+
+Data is shown that KT downloaded a flashplayer at 8:24 and began streaming spotify Musci at 8:24 on 2015-6-30.  Much of the data is pertainaing to Spotify music streaming and reviews between 8:-4 and 8:29.
+
+
+When the cookies.squlite database is interrogated 
+```
+bash 
+squlite3 cookies.squlite
+```
+and then 
+```
+sql
+SELECT * FROM moz_cookies
+```
+,the data shows cookies from bandcamp, spotify, pitchfork,stereogum, youtube (livestream).  These are all music streaming and review sites. 
+
+formhistory.squlite was also interrogated.  The data shows KT signig up for  the website Pitchfork, using his first, last name and company email. 
+
+## Conclusion
+
+The data shows KT using his company provided laptop for streaming services, primarily music from Spotify, or Youtube. The data also shows many music reviews are accesssed from the laptop from sites such as Sterogum and Pitchfork.
+
+The data alos shows KT bought a festival ticket (pygamilion from company EventBrite) at 10:03 on 2014-9-23 on the laptop.
+
+The photo evidence needs more interrogation.  Some of the GPS data, as well as creation data has been obfuscated, especially around dates where KT was scheduled to be in conferences.
