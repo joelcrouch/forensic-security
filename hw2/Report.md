@@ -17,6 +17,19 @@ $ sudo mount -t ntfs-3g -o loop,ro,noexec out.dd ~/out
 
 
 ```
+These are the flags for this command.
+looop:
+
+    This option tells the mount command to use a loop device. A loop device allows you to mount a file as if it were a block device (e.g., a hard drive). This is useful for mounting disk images like out.dd.
+
+ro:
+
+    Stands for "read-only". It mounts the filesystem in read-only mode, meaning no changes can be made to the filesystem while it's mounted. This is useful for examining or recovering data without modifying it.
+
+noexec:
+
+    Prevents execution of any binaries on the mounted filesystem. This means that even if there are executable files in the filesystem, they cannot be run. This option is often used for security reasons or to prevent accidental execution of scripts or programs.
+
 
 ### Findings
  
