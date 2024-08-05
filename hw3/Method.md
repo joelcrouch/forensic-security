@@ -143,3 +143,17 @@ The output above is from the script outlined above. The pictures have been opene
 
 
 We can iterrogate the gif files similarily, however the gif files do not contain lat/long data.  Visually inspecting the gif files reveals that there are many different flag gifs, 'operation working' gifs, and flashy 'new' gifs.  
+
+#### Scalpel
+Scalpel was also used to see if we could get some pdf's.
+
+```
+bash 
+sudo apt-get install scaplpel
+sudo vim /etc/scalpel/scalpel.conf
+
+##uncomemmt the appropirate pdf line
+scalpel -c /etc/scalpel/scalpel.conf -o scalpel.output fsf.dd
+
+```
+There are two options. On the first pass the first pdf option was uncommented.  This yielded no pdf's.  The second pass the second option was uncommented. The output directory was also deleted because I am too lazy to make a new one: rm -fr directory_name.  No pdf's were found with this option uncommmented out either. 
