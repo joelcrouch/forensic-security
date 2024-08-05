@@ -140,3 +140,6 @@ output_Mon_Aug__5_10_41_04_2024/jpg/00370368.jpg was taken around Chicago  (happ
 
 The output above is from the script outlined above. The pictures have been opened and inspected.  The pictures are of a mall near Chicago, Illinois.  The pictures depict various stores that are common in malls, some gift card pictures, and a picture of a 'happy birthday' display.
 
+
+
+We can iterrogate the gif files similarily, however the gif files do not contain lat/long data.  Visually inspecting the gif files reveals that there are many different flag gifs, 'operation working' gifs, and flashy 'new' gifs.  
