@@ -157,3 +157,9 @@ scalpel -c /etc/scalpel/scalpel.conf -o scalpel.output fsf.dd
 
 ```
 There are two options. On the first pass the first pdf option was uncommented.  This yielded no pdf's.  The second pass the second option was uncommented. The output directory was also deleted because I am too lazy to make a new one: rm -fr directory_name.  No pdf's were found with this option uncommmented out either. 
+
+### Photorec
+
+Run photorec against all the partitions and the output will be delievered into 11 directories.  
+Copy them all, and remove the dups.  See attached filse: copy_photos.zsh and rm_dups.zsh.
+
