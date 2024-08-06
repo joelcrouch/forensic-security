@@ -35,3 +35,22 @@ photorec fsf.dd
 
 ```
 
+Both of these methods created much data.  A custom python script was created to find GPS signatures of photos that were near the alleged scene of the crime.  20 photos were found that were taken in and around the Chicago area.  These photos were acquired from the foremost tool.  The photorec tool (part of the testdisk suite) gathered many more photos (jpg, gif, png), but GPS data was lacking in many of them.
+
+
+### Data analysis and Visualizaation
+
+The extracted files of interest, that had pertinent GPS data were copied into a directory.  A custom python script was created to visualize the locations of the pictures.  A  file named 'map.html' may be opened up in the web browser of your choice, and locations of the the pictures can be viewed.
+
+## Findings
+
+Multiple pictures were found of various retail stores were discovered on the hard drive, as well as pictures of gift cards from said retail stores including Neiman Marcus, Nordstroms, the Gap, Abercrombie, and Starbucks.  A photo of a 'happy birthday' display was also discovered with the same GPS (Chicago-Land) coordinates.  
+Many .txt files were found by the photorec that have the structure of algorithmic keys, similar to a product key used for installing a new operating system.  
+
+## Conclusion
+
+The forensic investigation of the thumb drive seized from Jenny Card revealed significant evidence linking her to the fraudulent activities. Numerous photos of various retail stores and gift cards from these stores were discovered on the drive, indicating her involvement in documenting and possibly planning the fraudulent use of these cards. Additionally, several .txt files containing sequences resembling product keys were found. These files likely contain different keys for the gift cards, further supporting the suspicion of her engagement in the creation and distribution of fraudulent gift cards. 
+
+
+
+
