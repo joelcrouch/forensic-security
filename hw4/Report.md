@@ -33,3 +33,32 @@ The investigation was conducted using a combination of forensic tools and method
         Process: Compared the timelines of file activities from the USB drive and Kelly’s computer to identify any overlaps or suspicious activity. Focused on the creation and deletion of .docx files and other relevant documents.
 
 By systematically applying these tools and methods, the investigation attempts to to find any evidence that would corroborate or refute Allison Origin’s claims about Kelly Copy’s alleged misuse of research data.
+
+## FINDINGS
+
+Using these commands on a csv file created from Allison.dd to create a timeline:
+
+```
+bash
+fls -l -m "/" -z CST6CDT -f fat32 -r -o 2 allison.dd > body.txt
+mactime -b body.txt -d > allison.csv
+```
+
+The csv may be viewed in excel or IDE. VS Code is used in this case.  A search for '.docx' is performed and we find that the file:"/Treatment Plant Results of Purification.docx (deleted)" has beed deleted.  The file was deleted on Sun Jul 12 2015 22:00:00. The 'meta' column denotes the inode value which can be used in the following command to recover said file:
+
+```
+bash
+icat -f fat32 -o 2 Allison.dd 69 > | recovered.docx
+```
+Next we viewed the file, and interrogated the metadata, respectively:
+```
+bash
+libreoffice recovered.docx
+exiftool recovered.docx
+```
+
+The file was created by Allison Origin, using Microsoft Macintosh Word at 2015:07_13 16:28:00, modified and saved/deleted 3 minutes later. 
+
+
+
+
