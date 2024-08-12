@@ -36,6 +36,8 @@ By systematically applying these tools and methods, the investigation attempts t
 
 ## FINDINGS
 
+### Allison Origin Findings
+
 Using these commands on a csv file created from Allison.dd to create a timeline:
 
 ```
@@ -58,7 +60,34 @@ exiftool recovered.docx
 ```
 
 The file was created by Allison Origin, using Microsoft Macintosh Word at 2015:07_13 16:28:00, modified and saved/deleted 3 minutes later. 
+This is another line from Allison's timeline:  
+```
+Sun Jul 12 2015 22:00:00,337839,.a..,r/rrwxrwxrwx,0,0,69,"/Treatment Plant Results of Purification.docx (deleted)"
+```
+### Kelly Copy Findings
+
+A timeline is created using plaso, csv created, and a smaller file 'new.txt' to be interrogated:
+
+```
+bash 
+~/plaso_env/bin/log2timeline --vss_stores 3 --volumes all --hashers all --parsers webhist,win7,win7_slow,win_gen --storage-file kelly2.plaso kelly.dd
+
+~/plaso_env/bin/psort --output_time_zone "CST6CDT" -w kelly2.csv -o dynamic kelly2.plaso
+
+grep .docx  kelly2.csv > new.txt
+grep "\.docx" kelly2.csv > filter_docx.csv
+```
+The last two commands above filter similarily, but the second can be more accesible with an IDE or excel, making it more useful.
+
+This line is found in Kelly Copy's timeline: 
+```
+2015-07-13T11:36:06.000000-05:00,Content Modification Time,LNK,Windows Shortcut,File size: 337839 File attribute flags: 0x00000020 Drive type: 3 Drive serial number: 0x4268856a Volume label:  Local path: C:\\Users\\Kelly Copy\\Desktop\\Grant\\Treatment Plant Results of Purification.docx Relative path: ..\\..\\..\\..\\..\\Desktop\\Grant\\Treatment Plant Results of Purification.docx Working dir: C:\\Users\\Kelly Copy\\Desktop\\Grant Link target: Grant Treatment Plant Results of Purification.docx,lnk,NTFS:\Users\Kelly Copy\AppData\Roaming\Microsoft\Windows\Recent\Treatment Plant Results of Purification.lnk,-
+```
+
+Kelly opened up a copy of the file at 2015-7-13 at 11:36, and recovered it from the recycle bin.  That is the earliest '.docx' mentioned in the timeline that has a "purification' in the referenece(title).
 
 
+## Conclusion 
+From the findings above, we can see that Allison Origin had a copy of the file before Kelly Copy. This investigation's finding suggest Allison Origin is the originator of the file in question.
 
 
